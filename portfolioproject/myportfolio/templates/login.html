@@ -1,0 +1,122 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!--MAIN CSS-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Portafolio Paloma Tamayo</title>
+</head>
+<body>
+    <!-- HEADER DESING -->
+    <header class="header">
+        <div class="contenedor-header">
+            <a href="#" class="logo">
+                <img src="{% static 'img/IMG TRANSPARENTE.png' %}" alt="Logo">
+            </a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#sobremi">Sobre mí</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#curriculum">Curriculum</a></li>
+                    <li><a href="#portafolio">Portfolio</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+            </nav>
+            <div class="nav-responsive" id="menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox" name="remember">Recuerdame</label>
+                <a href="{% url 'password_reset' %}">Olvidaste tu contraseña?</a>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+            <div class="register-link">
+                <p>No tienes una cuenta?
+                    <a href="{% url 'register' %}">Registrate</a>
+                </p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', validarFormulario);
+    </script>
+
+    <!-- FOOTER -->
+    <footer class="footer" style="background-color: gray;">
+        <a href="#inicio" class="arriba">
+            <i class="fa-solid fa-angles-up"></i>
+        </a>
+        <div class="redes">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-skype"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-solid fa-rss"></i></a>
+        </div>
+        <div class="contenido-seccion">
+            <div class="footer-text">
+                <p>Copyright &copy; 2024 by Paloma Tamayo | Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Obtengo el formulario
+        const loginForm = document.querySelector('.wrapper form');
+
+        // Agrego un event listener para el envío del formulario
+        loginForm.addEventListener('submit', function(event) {
+            // Prevengo el comportamiento del envío del formulario
+            event.preventDefault();
+
+            // Obtengo los valores de los campos del formulario
+            const email = document.querySelector('input[name="username"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            // Valido el correo electrónico
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor, ingrese un correo electrónico válido.');
+                return;
+            }
+
+            // Valido la contraseña
+            const passwordRegex = /^.{6,}$/;
+            if (!passwordRegex.test(password)) {
+                alert('La contraseña debe tener al menos 6 caracteres.');
+                return;
+            }
+
+            // Si los campos son válidos, puedes enviar el formulario
+            loginForm.submit();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+// Mostrar el banner al cargar la página
+window.onload = function() {
+    document.getElementById('banner').style.display = 'block';
+}
+
+// Reproducir música si el usuario hace clic en "Sí"
+function reproducirMusica() {
+    document.getElementById('banner').style.display = 'none';
+    document.getElementById('spotifyPlayer').style.display = 'block';
+}
+
+// Cerrar el banner si el usuario hace clic en "No"
+function cerrarBanner() {
+    document.getElementById('banner').style.display = 'none';
+}

@@ -1,0 +1,704 @@
+{% load static %}
+{% load bootstrap5 %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- FONT-AWESOME -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+   <!--MAIN CSS-->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <link href="https://fonts.googleapis.com/css?family=Belleza" rel="stylesheet">
+   {% bootstrap_css %}
+   <title>Portafolio Paloma Tamayo</title>
+</head>
+<body>
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+<!-- Banner de bienvenida -->
+<div class="banner">
+    <h1>Bienvenido a mi portafolio</h1>
+    <p>¿Desea comenzar escuchando música?</p>
+    <div class="botones-container">
+        <button onclick="reproducirMusica()">Sí</button>
+        <button onclick="ocultarBanner()">No</button>
+    </div>
+</div>
+
+<!-- Script para mostrar el reproductor de audio al hacer clic en el botón "Sí" -->
+<script>
+    function reproducirMusica() {
+        // Obtener el elemento de audio
+        var audio = document.getElementById('audioPlayer');
+        // Reproducir el audio
+        audio.play();
+        // Ocultar el banner
+        ocultarBanner();
+    }
+
+    function ocultarBanner() {
+        // Ocultar el banner
+        document.querySelector('.banner').style.display = 'none';
+    }
+</script>
+
+<!-- Reproductor de audio -->
+<audio id="audioPlayer" src="{% static 'otro/cancion.mp3' %}"></audio>
+
+<header class="header">
+    <div class="contenedor-header">
+        <a href="#" class="logo">
+            <img src="{% static 'images/IMG TRANSPARENTE.png' %}" alt="Logo">
+        </a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#sobremi">Sobre mí</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#curriculum">Curriculum</a></li>
+                <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#contact">Contáctame</a></li> <!-- Cambiado a 'Contáctanos' -->
+            </ul>
+        </nav>
+        <!-- Menú de hamburguesa -->
+        <button class="menu-toggle">☰</button>
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <script>
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navbar = document.querySelector('.navbar');
+
+            menuToggle.addEventListener('click', function() {
+                navbar.classList.toggle('active');
+            });
+        </script>
+    </div>
+</header>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!--MAIN CSS-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Belleza" rel="stylesheet">
+    {% bootstrap_css %}
+    <title>Portafolio Paloma Tamayo</title>
+    <style>
+        .typing-effect {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 0.15em solid #000; /* Color del cursor de escritura */
+            white-space: nowrap;
+            margin: 0 auto; /* Centro el texto */
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: black; }
+        }
+    </style>
+</head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT-AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!--MAIN CSS-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Belleza" rel="stylesheet">
+    {% bootstrap_css %}
+    <title>Portafolio Paloma Tamayo</title>
+    <style>
+        .typing-effect {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 0.15em solid #000; /* Color del cursor de escritura */
+            white-space: nowrap;
+            margin: 0 auto; /* Centro el texto */
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: black; }
+        }
+    </style>
+</head>
+<body>
+    <section class="inicio" id="inicio">
+        <div class="contenido-banner">
+            <div class="contenedor-img">
+                <img src="{% static 'images/IMG PERFIL_1.jpeg' %}" alt="Paloma Tamayo">
+            </div>
+            <div class="contenido-texto">
+                <h1>Bienvenido a mi Portafolio: 
+                    <br><span class="typing-effect">soy Paloma Tamayo</span></h1>
+                <div class="redes">
+                    <a href="https://www.linkedin.com/in/paloma-tamayo-segura" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textElement = document.querySelector('.typing-effect');
+            const text = "soy Paloma Tamayo";
+            let index = 0;
+            let isAdding = true;
+
+            function type() {
+                if (isAdding) {
+                    if (index < text.length) {
+                        textElement.textContent += text.charAt(index);
+                        index++;
+                        setTimeout(type, 100); // Velocidad de escritura
+                    } else {
+                        isAdding = false;
+                        setTimeout(type, 2000); // Pausa al final del texto
+                    }
+                } else {
+                    if (index > 0) {
+                        textElement.textContent = text.substring(0, index - 1);
+                        index--;
+                        setTimeout(type, 50); // Velocidad de borrado
+                    } else {
+                        isAdding = true;
+                        setTimeout(type, 500); // Pausa antes de volver a escribir
+                    }
+                }
+            }
+
+            type();
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!-- ABOUT SECTION DESING -->
+<section class="sobremi" id="sobremi">
+    <div class="contenido-seccion">
+        <h2>Sobre Mí</h2>
+        <p style="text-align: center;">Actualmente soy estudiante de Ingeniería en Informática en DUOC UC.</p>
+        <p style="text-align: center;">Estoy muy interesada en el desarrollo web y actualmente estoy cursando la asignatura Programación Web.</p>
+        <p style="text-align: center;">Para este Portafolio, tuve la oportunidad de desarrollar una página web utilizando HTML, CSS y JavaScript como base fundamental.</p>
+        <p style="text-align: center;">Para esta entrega, el portafolio fue transformado a Django.</p>    
+        <p style="text-align: center;">Me apasiona aprender nuevas tecnologías y estoy entusiasmada por explorar más en el campo del desarrollo web.</p>
+
+        <div class="fila">
+            <!-- Datos personales -->
+            <div class="col">
+                <h3>Datos Personales</h3>
+                <ul>
+                    <li>
+                        <strong>Mi Cumpleaños</strong> 12-06-1995
+                    </li>
+                    <li>
+                        <strong>Número de Celular</strong> +56 9 66744011
+                    </li>
+                    <li>
+                        <strong>Email</strong> p.tamayo.segura@gmail.com
+                    </li>
+                    <li>
+                        <strong>Sitio Web</strong> https://www.peopleconnect.cl/
+                    </li>
+                    <li>
+                        <strong>Dirección</strong> Puerto Montt
+                    </li>
+                    <li>
+                        <strong>Cargo</strong>Consultant en Michael Page International
+                    </li>
+                </ul>
+                <div style="text-align: center;">
+                    <a href="{% static 'otro/cv Paloma Tamayo.pdf' %}" target="_blank">Ver CV</a>
+                    <a href="{% static 'otro/cv Paloma Tamayo.pdf' %}" download>Descargar CV</a>
+                </div>
+            </div>
+            <!-- Intereses -->
+            <div class="col">
+                <h3>Intereses</h3>
+                <div class="contenedor-intereses">
+                    <div class="interes">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>JUEGOS</span>
+                    </div>
+                    <div class="interes">
+                        <i class="fa-solid fa-music"></i>
+                        <span>MUSICA</span>
+                    </div>
+                    <div class="interes">
+                        <i class="fa-solid fa-book"></i>
+                        <span>LIBROS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- SKILLS SECTION DESIGN -->
+<section class="skills" id="skills">
+    <div class="contenido-seccion">
+        <h2>Skills</h2>
+        <div class="fila">
+            <div class="col">
+                <h3>Technical Skills</h3>
+                <div class="skill">
+                    <span>HTML</span>
+                    <div class="barra-skill">
+                        <div class="progreso html">
+                            <span>75%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>CSS</span>
+                    <div class="barra-skill">
+                        <div class="progreso css">
+                            <span>78%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Javascript</span>
+                    <div class="barra-skill">
+                        <div class="progreso javascript">
+                            <span>68%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Django</span>
+                    <div class="barra-skill">
+                        <div class="progreso django">
+                            <span>58%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h3>Professional Skills</h3>
+                <div class="skill">
+                    <span>Trabajo en Equipo</span>
+                    <div class="barra-skill">
+                        <div class="progreso trabajo-en-equipo">
+                            <span>75%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Habilidades comunicativas</span>
+                    <div class="barra-skill">
+                        <div class="progreso habilidades-comunicativas">
+                            <span>78%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Autonomía</span>
+                    <div class="barra-skill">
+                        <div class="progreso autonomia">
+                            <span>65%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span>Orientación al Logro</span>
+                    <div class="barra-skill">
+                        <div class="progreso orientación-al-logro">
+                            <span>82%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- CURRICULUM SECTION DESING -->
+<section id="curriculum" class="curriculum">
+    <div class="contenido-seccion">
+        <h2>Curriculum</h2>
+        <div class="fila">
+            <div class="col izquierda">
+                <h3>Educación</h3>
+                <div class="item izq">
+                    <h4>Duoc UC - sede Puerto Montt</h4>
+                    <span class="casa">Ingeniería en Informática</span>
+                    <span class="fecha">2023 - Actualidad</span>
+                    <div class="conectori">
+                        <div class="circuloi"></div>
+                    </div>
+                </div>
+                <div class="item izq">
+                    <h4>Universitat Autónoma de Barcelona - Barcelona</h4>
+                    <span class="casa">Máster en Gestión de Recursos Humanos</span>
+                    <span class="fecha">2019 - 2020</span>
+                    <div class="conectori">
+                        <div class="circuloi"></div>
+                    </div>
+                </div>
+                <div class="item izq">
+                    <h4>Universidad Austral de Chile - Valdivia</h4>
+                    <span class="casa">Psicología</span>
+                    <span class="fecha">2014 - 2018</span>
+                    <div class="conectori">
+                        <div class="circuloi"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col derecha">
+                <h3>Experiencia de trabajo</h3>
+                <div class="item der">
+                    <h4>Michael Page</h4>
+                    <span class="casa">Consultant</span>
+                    <span class="fecha">2022 - Actualidad</span>
+                    <p>Consultora de Tecnología en PageGroup, conecto el talento con las empresas que buscan impulsar la innovación y el crecimiento.</p>
+                    <div class="conectord">
+                        <div class="circulod"></div>
+                    </div>
+                </div>
+                <div class="item der">
+                    <h4>TSOFT</h4>
+                    <span class="casa">Recruiter IT</span>
+                    <span class="fecha">2022</span>
+                    <p>Como Recruiter IT especializada en tecnología de la información, me apasiona conectar con el talento innovador.</p>
+                    <div class="conectord">
+                        <div class="circulod"></div>
+                    </div>
+                </div>
+                <h5>Experiencia de trabajo</h5>
+                <div class="item der">
+                    <h5>Puente Digital</h5>
+                    <span class="casa">Coordinadora Atracción de Talento</span>
+                    <span class="casa">Analista Atracción de Talento</span>
+                    <span class="fecha">2021 - 2022</span>
+                    <p> - Lideré y colaboré en la atracción de talento para posiciones de TI, implementando estrategias innovadoras y mejorando procesos de selección.</p>
+                    <p> - Realicé búsqueda y selección de candidatos, definiendo perfiles y requisitos para los puestos en el área de tecnología.</p>
+                    <div class="conectord">
+                        <div class="circulod"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- PORTFOLIO SECTION DESIGN -->
+<section class="portfolio" id="portfolio">
+    <div class="contenido-seccion">
+        <h2>Portafolio</h2>
+        <div class="galeria">
+            <div class="proyectos-container">
+                {% for proyecto in proyectos %}
+                <div class="proyecto">
+                    <div class="imagen-container gif-container">
+                        <img src="{{ proyecto.imagen.url }}" alt="{{ proyecto.titulo }}">
+                    </div>
+                    <div class="overlay">
+                        <h3>{{ proyecto.titulo }}</h3>
+                        <p>{{ proyecto.descripcion }}</p>
+                        <a href="{{ proyecto.link_sitio }}" class="btn portfolio-link" target="_blank">
+                            <i class="fa-solid fa-up-right-from-square"></i> Ver sitio
+                        </a>
+                        <a href="{{ proyecto.link_repositorio }}" class="btn portfolio-link" target="_blank">
+                            <i class="fa-brands fa-github"></i> Repositorio
+                        </a>
+                        <a href="{% url 'proyecto_detalle' proyecto.pk %}" class="btn btn-info">Ver Detalle</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón de Subir -->
+    <a href="#inicio" class="arriba">
+        <i class="fa-solid fa-angles-up"></i>
+        <span>Arriba</span>
+    </a>
+
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center">Contáctame</h2>
+        <form method="POST" action="{% url 'contacto_nuevo' %}" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="id_nombre" name="nombre" required>
+                <div class="invalid-feedback">Por favor ingresa un nombre.</div>
+            </div>
+            <div class="mb-3">
+                <label for="id_email" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="id_email" name="email" required>
+                <div class="invalid-feedback">Por favor ingresa un correo.</div>
+            </div>
+            <div class="mb-3">
+                <label for="id_mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="id_mensaje" name="mensaje" rows="3" required></textarea>
+                <div class="invalid-feedback">Por favor ingresa un mensaje.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</section>
+
+
+
+<script>
+    // Obtengo el formulario
+    const form = document.querySelector('#contacto form');
+    const nombreInput = document.querySelector('input[name="nombre"]');
+    const emailInput = document.querySelector('input[name="email"]');
+    const telefonoInput = document.querySelector('input[name="telefono"]');
+    const asuntoInput = document.querySelector('input[name="asunto"]');
+    const mensajeInput = document.querySelector('textarea[name="mensaje"]');
+
+    // Agrego un event listener para el envío del formulario
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevengo el envío del formulario
+
+        // Validaciones
+        let isValid = true;
+
+        if (!validarNombre(nombreInput.value.trim())) {
+            isValid = false;
+        }
+
+        if (!validarEmail(emailInput.value.trim())) {
+            isValid = false;
+        }
+
+        if (!validarTelefono(telefonoInput.value.trim())) {
+            isValid = false;
+        }
+
+        if (!validarCampo(asuntoInput)) {
+            isValid = false;
+        }
+
+        if (!validarCampo(mensajeInput)) {
+            isValid = false;
+        }
+
+        if (isValid) {
+            // Si los campos son válidos, puedes enviar el formulario
+            form.submit();
+        }
+    });
+
+    // Validación en tiempo real de los campos
+    nombreInput.addEventListener('input', function() {
+        validarNombre(nombreInput.value.trim());
+    });
+    emailInput.addEventListener('input', function() {
+        validarEmail(emailInput.value.trim());
+    });
+    telefonoInput.addEventListener('input', function() {
+        validarTelefono(telefonoInput.value.trim());
+    });
+    asuntoInput.addEventListener('input', function() {
+        validarCampo(asuntoInput);
+    });
+    mensajeInput.addEventListener('input', function() {
+        validarCampo(mensajeInput);
+    });
+
+    function validarNombre(nombre) {
+        const nombrePartes = nombre.split(' ');
+        const error = nombreInput.nextElementSibling;
+
+        if (nombrePartes.length < 2) {
+            mostrarError(nombreInput, error, 'Por favor, ingrese su nombre completo con al menos 2 palabras.');
+            return false;
+        } else {
+            limpiarError(nombreInput, error);
+            return true;
+        }
+    }
+
+    function validarEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const error = emailInput.nextElementSibling;
+
+        if (!emailRegex.test(email)) {
+            mostrarError(emailInput, error, 'Por favor, ingrese un correo electrónico válido.');
+            return false;
+        } else {
+            limpiarError(emailInput, error);
+            return true;
+        }
+    }
+
+    function validarTelefono(telefono) {
+        const telefonoRegex = /^\d{9}$/;
+        const error = telefonoInput.nextElementSibling;
+
+        if (!telefonoRegex.test(telefono)) {
+            mostrarError(telefonoInput, error, 'Por favor, ingrese un número de teléfono válido de 9 dígitos numéricos.');
+            return false;
+        } else {
+            limpiarError(telefonoInput, error);
+            return true;
+        }
+    }
+
+    function validarCampo(campo) {
+        const valor = campo.value.trim();
+        const error = campo.nextElementSibling;
+
+        if (valor.length === 0) {
+            mostrarError(campo, error, `Por favor, ingrese un${campo === asuntoInput ? ' asunto' : ' mensaje'}.`);
+            return false;
+        } else {
+            limpiarError(campo, error);
+            return true;
+        }
+    }
+
+    function mostrarError(campo, error, mensaje) {
+        campo.setCustomValidity(mensaje);
+        campo.reportValidity();
+        if (!error) {
+            error = document.createElement('small');
+            error.style.color = 'red';
+            campo.insertAdjacentElement('afterend', error);
+        }
+        error.textContent = mensaje;
+    }
+
+    function limpiarError(campo, error) {
+        campo.setCustomValidity('');
+        if (error) {
+            error.textContent = '';
+        }
+    }
+</script>
+
+<!-- footer -->
+<footer>
+    <a href="#inicio" class="arriba">
+        <i class="fa-solid fa-angles-up"></i>
+    </a>
+    <div class="redes">
+        <a href="https://www.linkedin.com/in/paloma-tamayo-segura" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <p>&copy; 2024 Paloma Tamayo. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+    <!-- SCRIPT FUNCIONALIDAD -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Función para verificar si un elemento es visible en el viewport
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            // Función para manejar la animación de las barras de progreso
+            function handleScroll() {
+                const skillsSection = document.querySelector('.skills');
+                const progressBars = document.querySelectorAll('.progreso');
+
+                if (isElementInViewport(skillsSection)) {
+                    progressBars.forEach(bar => {
+                        bar.style.animationPlayState = 'running';
+                    });
+                } else {
+                    progressBars.forEach(bar => {
+                        bar.style.animation = 'none';
+                        bar.offsetHeight; // Forzar el reflow
+                        bar.style.animation = '';
+                    });
+                }
+            }
+
+            // Escuchar el evento de scroll
+            window.addEventListener('scroll', handleScroll);
+
+            // Ejecutar la función al cargar la página
+            handleScroll();
+        });
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+    
+        function closeMenu() {
+            navbar.classList.remove('active');
+            menuToggle.querySelector('i').classList.remove('fa-times');
+            menuToggle.querySelector('i').classList.add('fa-bars');
+        }
+    
+        function toggleMenu() {
+            navbar.classList.toggle('active');
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        }
+    
+        menuToggle.addEventListener('click', toggleMenu);
+    
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target) && !menuToggle.contains(e.target) && navbar.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+    
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 767 && navbar.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+    });
+    </script>
+</body>
+</html>
